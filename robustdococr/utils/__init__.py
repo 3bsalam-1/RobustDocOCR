@@ -18,3 +18,9 @@ __all__ = [
     "plot_comparison",
     "plot_quality_distribution",
 ]
+
+# Package version
+__version__ = "1.0.2"
+__author__ = "Ahmed Mohamed"
+__license__ = "MIT"
+__email__ = "3bsalam0@gmail.com"

@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![PyPI version](https://img.shields.io/pypi/v/RobustDocOCR)](https://pypi.org/project/RobustDocOCR/)
 
 A robust preprocessing pipeline for document OCR that significantly improves Tesseract accuracy on mobile-captured ID documents.
 
@@ -11,23 +12,20 @@ A robust preprocessing pipeline for document OCR that significantly improves Tes
 ### Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/robust-document-ocr-preprocessing.git
-cd robust-document-ocr-preprocessing
+# Install from PyPI
+pip install RobustDocOCR
 
-# Create virtual environment (recommended)
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# Install with OCR support
+pip install RobustDocOCR[ocr]
 
-# Install dependencies
-pip install -e .
+# Install with development dependencies
+pip install RobustDocOCR[dev]
 ```
 
 ### Basic Usage
 
 ```python
-from preprocessing.pipeline import preprocess_document
-from utils.image_utils import load_image
+from robustdococr import preprocess_document, load_image
 
 # Load your document image
 image = load_image("document.jpg")
@@ -43,13 +41,10 @@ preprocessed_image = results['final']
 
 ```bash
 # Process single image
-python -m src.main input.jpg --output output.jpg
-
-# Process with OCR comparison
-python -m src.main input.jpg --compare-ocr
+robustdococr input.jpg --output output.jpg
 
 # Process with intermediate steps display
-python -m src.main input.jpg --show-steps
+robustdococr input.jpg --show-steps
 ```
 
 ## 📦 Features
@@ -81,23 +76,23 @@ python -m src.main input.jpg --show-steps
 ## 📂 Project Structure
 
 ```
-robust-document-ocr-preprocessing/
-├── src/
-│   ├── preprocessing/          # Core preprocessing modules
-│   │   ├── deskewing.py        # Image straightening
-│   │   ├── binarization.py     # Adaptive thresholding
-│   │   ├── noise_removal.py    # Artifact cleaning
-│   │   └── pipeline.py         # Complete pipeline
-│   ├── utils/                  # Utility functions
-│   │   ├── image_utils.py      # Image utilities
-│   │   ├── ocr_utils.py        # OCR utilities
-│   │   └── visualization.py    # Visualization tools
-│   └── main.py                 # CLI entry point
-├── tests/                      # Test suite
-├── examples/                   # Example scripts
-├── notebooks/                  # Jupyter notebooks
-├── docs/                       # Documentation
-└── README.md                   # This file
+robustdococr/
+ ├── preprocessing/          # Core preprocessing modules
+ │   ├── deskewing.py        # Image straightening
+ │   ├── binarization.py     # Adaptive thresholding
+ │   ├── noise_removal.py    # Artifact cleaning
+ │   └── pipeline.py         # Complete pipeline
+ ├── utils/                  # Utility functions
+ │   ├── image_utils.py      # Image utilities
+ │   ├── ocr_utils.py        # OCR utilities
+ │   └── visualization.py    # Visualization tools
+ ├── cli.py                  # CLI entry point
+ ├── main.py                 # Main module
+ └── __init__.py             # Package initialization
+tests/                      # Test suite
+examples/                   # Example scripts
+notebooks/                  # Jupyter notebooks
+docs/                       # Documentation
 ```
 
 ## 🔧 Configuration
@@ -107,17 +102,24 @@ robust-document-ocr-preprocessing/
 - Python 3.8+
 - OpenCV
 - NumPy
-- Tesseract OCR
+- Pillow
 - Matplotlib (for visualization)
+- Tesseract OCR (optional, for OCR features)
 
 ### Installation Options
 
 ```bash
 # Basic installation
-pip install -e .
+pip install RobustDocOCR
 
 # Development installation (includes test and dev dependencies)
-pip install -e .[dev]
+pip install RobustDocOCR[dev]
+
+# Installation with OCR support
+pip install RobustDocOCR[ocr]
+
+# Installation with all extras
+pip install RobustDocOCR[all]
 ```
 
 ## 📊 Technical Specifications
@@ -155,7 +157,7 @@ pytest
 Run tests with coverage:
 
 ```bash
-pytest --cov=src --cov-report=html
+pytest --cov=robustdococr --cov-report=html
 ```
 
 ## 📚 Documentation
@@ -164,6 +166,7 @@ pytest --cov=src --cov-report=html
 - [Usage Guide](docs/usage-guide.md)
 - [Decision Log](docs/decision-log.md)
 - [API Reference](docs/api-reference.md)
+- [Kaggle Notebook](https://www.kaggle.com/code/ahmedmohamedab/robust-document-ocr-preprocessing-pipeline) - Complete preprocessing pipeline demonstration
 
 ## 🤝 Contributing
 
@@ -188,7 +191,7 @@ If you use this pipeline in your research, please cite:
   year = {2026},
   publisher = {GitHub},
   journal = {GitHub repository},
-  howpublished = {\url{https://github.com/yourusername/robust-document-ocr-preprocessing}}
+  howpublished = {\url{https://github.com/3bsalam-1/RobustDocOCR}}
 }
 ```
 
@@ -197,6 +200,10 @@ If you use this pipeline in your research, please cite:
 - [Tesseract OCR](https://github.com/tesseract-ocr/tesseract)
 - [OpenCV](https://opencv.org/)
 - [MIDV-500 Dataset](https://www.kaggle.com/datasets/kontheeboonmeeprakob/midv500)
+
+## 📦 PyPI
+
+This package is available on PyPI: [https://pypi.org/project/RobustDocOCR/](https://pypi.org/project/RobustDocOCR/)
 
 ---
 

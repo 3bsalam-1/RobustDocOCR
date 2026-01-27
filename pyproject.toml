@@ -3,20 +3,35 @@ requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "robust-document-ocr-preprocessing"
-version = "1.0.0"
+name = "RobustDocOCR"
+version = "1.0.2"
 description = "A robust preprocessing pipeline for document OCR that significantly improves Tesseract accuracy on mobile-captured ID documents"
 authors = [
-    {name = "3BSALAM", email = "your.email@example.com"}
+    {name = "Ahmed Mohamed", email = "3bsalam0@gmail.com"}
 ]
 readme = "README.md"
-license = {text = "MIT"}
+license = "MIT"
 requires-python = ">=3.8"
+dependencies = [
+    "opencv-python-headless>=4.5.0",
+    "numpy>=1.20.0",
+    "pillow>=9.0.0",
+    "matplotlib>=3.5.0",
+]
+keywords = [
+    "ocr",
+    "document",
+    "preprocessing",
+    "image-processing",
+    "tesseract",
+    "computer-vision",
+    "document-analysis",
+    "text-recognition",
+]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
@@ -25,17 +40,42 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering :: Image Processing",
     "Topic :: Software Development :: Libraries :: Python Modules",
-    "Topic :: Text Processing :: Linguistic"
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence"
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/robust-document-ocr-preprocessing"
-Documentation = "https://github.com/yourusername/robust-document-ocr-preprocessing/blob/main/docs"
-Repository = "https://github.com/yourusername/robust-document-ocr-preprocessing"
-Issues = "https://github.com/yourusername/robust-document-ocr-preprocessing/issues"
+Homepage = "https://github.com/3bsalam-1/RobustDocOCR"
+Documentation = "https://github.com/3bsalam-1/RobustDocOCR/blob/main/docs"
+Repository = "https://github.com/3bsalam-1/RobustDocOCR"
+Issues = "https://github.com/3bsalam-1/RobustDocOCR/issues"
+Changelog = "https://github.com/3bsalam-1/RobustDocOCR/blob/main/CHANGELOG.md"
+
+[project.scripts]
+robustdococr = "robustdococr.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=3.0.0",
+    "black>=22.0.0",
+    "flake8>=4.0.0",
+    "isort>=5.0.0",
+    "mypy>=0.900",
+    "twine>=4.0.0",
+    "build>=0.8.0"
+]
+ocr = [
+    "pytesseract>=0.3.0"
+]
+all = [
+    "RobustDocOCR[dev,ocr]"
+]
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["."]
+exclude = ["src*", "tests*", "examples*", "notebooks*", "scripts*", "docs*"]
 
 [tool.black]
 line-length = 88

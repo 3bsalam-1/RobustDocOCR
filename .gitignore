@@ -80,3 +80,17 @@ dist/
 
 # Kaggle
 /kaggle/
+
+# Development files (not for PyPI package)
+src/
+test_package.py
+test_package_simple.py
+publish_to_pypi.py
+.pypirc
+document.tif
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+*.egg
