@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "RobustDocOCR"
-version = "1.0.2"
+version = "1.0.3"
 description = "A robust preprocessing pipeline for document OCR that significantly improves Tesseract accuracy on mobile-captured ID documents"
 authors = [
     {name = "Ahmed Mohamed", email = "3bsalam0@gmail.com"}
