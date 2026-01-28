@@ -1,6 +1,6 @@
 """RobustDocOCR - A robust preprocessing pipeline for document OCR."""
 
-__version__ = "1.0.2"
+__version__ = "1.0.3"
 __author__ = "Ahmed Mohamed"
 __email__ = "3bsalam0@gmail.com"
 

@@ -11,7 +11,7 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 # Package version
-version = "1.0.2"
+version = "1.0.3"
 
 # Development requirements
 dev_requires = [
